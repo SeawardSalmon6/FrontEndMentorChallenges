@@ -1,0 +1,36 @@
+/* Standard Width-Height
+    - Mobile: 375px
+    - Desktop: 1440px
+*/
+
+:root {
+    --dark-cyan: hsl(185, 75%, 39%);
+    --desaturated-blue: hsl(229, 23%, 23%);
+    --dark-grayish-blue: hsl(227, 10%, 46%);
+    --dark-gray: hsl(0, 0%, 59%);
+    font-size: 18px;
+    font-family: "Kumbh Sans", Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: var(--dark-cyan);
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a { color: hsl(228, 45%, 44%); }
