@@ -1,8 +1,3 @@
-/* Standard Width-Height
-    - Mobile: 375px
-    - Desktop: 1440px
-*/
-
 :root {
     --dark-cyan: hsl(185, 75%, 39%);
     --desaturated-blue: hsl(229, 23%, 23%);
@@ -12,25 +7,137 @@
     font-family: "Kumbh Sans", Arial, sans-serif;
 }
 
-body {
-    height: 100vh;
-    overflow: hidden;
-    background: var(--dark-cyan);
+/* || 0.0 - CSS RESET */
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
 }
 
-main {
-    width: 100%;
+/* || 0.1 - UTILITIES */
+.flex-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.gray-info { color: var(--dark-gray); }
+.bold-info {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--desaturated-blue);
+}
 
+/* || 1.0 - BACKGROUND STYLING */
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--dark-cyan); /* applying template background */
+}
 
+body::after, body::before {
+    position: absolute;
+    content: '';
+    width: 978px;
+    height: 978px;
+    z-index: -1;
+}
 
-.attribution {
-    font-size: 11px;
+body::before {
+    background: url(/images/bg-pattern-top.svg) no-repeat;
+    background-size: cover;
+    bottom: 50%;
+    right: 50%;
+}
+
+body::after {
+    background: url(/images/bg-pattern-bottom.svg) no-repeat;
+    background-size: cover;
+    top: 50%;
+    left: 50%;
+}
+
+/* || 2.0 - MAIN CONTENT */
+main {
+    width: 100%;
+    height: 95vh;
+}
+
+/* || 2.1 -  CARD CONTAINER STYLING */
+.card {
+    flex-direction: column;
+    width: 350px;
+    height: 375px;
+    background: white;
+    border-radius: 0.8rem;
+    box-shadow: 1rem 1.5rem 2rem hsl(229, 23%, 23%, .3);
+    overflow: hidden;
+    transition: transform .4s ease;
+    cursor: pointer;
+}
+
+.card:hover { transform: translateY(-20px); }
+
+/* || 2.2 - PROFILE BACKGROUND */
+.card-background {
+    background: url(/images/bg-pattern-card.svg) no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 140px;
+    flex-shrink: 0;
+}
+
+/* || 2.3 - PROFILE CONTENT */
+.profile-content {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: white;
+    text-align: center;
+    color: var(--desaturated-blue);
+}
+
+.profile-photo {
+    width: 96px;
+    border: 4px solid white;
+    border-radius: 50%;
+    margin-top: -15%;
+}
+
+/* || 2.3.1 - NAME, AGE AND LOCATION BLOCK */
+.user-info {
+    width: 100%;
+    padding: 1.2rem;
+    border-bottom: 1px solid hsl(227, 10%, 46%, 10%);
+}
+
+.basic-info { margin-bottom: 0.2rem; }
+.user-age { margin-left: 0.2rem; }
+.user-location { font-size: 0.8rem; }
+
+/* || 2.3.2 - SOCIAL MEDIA NUMBERS BLOCK */
+.media-info {
+    width: 100%;
+    padding: 1.2rem;
+    flex-grow: 1;
+}
+
+.media-info .media-item {
+    flex-direction: column;
+    gap: 0.2rem;
+    width: 100%;
+}
+
+.media-info .media-item .gray-info {
+    letter-spacing: 0.1rem;
+    font-size: 0.6rem;
+}
+
+/* || 3.0 - FOOTER */
+footer .attribution {
+    font-size: 12px;
     text-align: center;
 }
 
-.attribution a { color: hsl(228, 45%, 44%); }
+footer .attribution a { color: hsl(228, 45%, 44%); }
